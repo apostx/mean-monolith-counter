@@ -1,0 +1,18 @@
+services:
+  mean-app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client/src:/app/client/src
+      - ./server:/app/server
+      - ./config:/app/config
+      - ./modules:/app/modules
+      - ./.env:/app/.env
+      - mongodb-data:/data/db
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://localhost:27017/counter-app
+
+volumes:
+  mongodb-data:
