@@ -2,7 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
-var counterController = require('../controllers/counters.controller');
+var counterController = require('../controllers/counter.controller');
 
 // Counter collection routes
 router.get('/', counterController.read);

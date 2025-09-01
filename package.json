@@ -1,7 +1,7 @@
 {
-  "name": "mean-counter-app",
+  "name": "monolithic-mean-counter-app",
   "version": "1.0.0",
-  "description": "MEAN Stack Counter Application",
+  "description": "Monolithic MEAN Stack Counter Application",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -26,14 +26,12 @@
     "typescript": "^5.9.2"
   },
   "keywords": [
+    "monolith",
     "mongodb",
     "express",
     "angular",
     "node",
     "mean",
-    "counter",
     "docker"
-  ],
-  "author": "MEAN.js",
-  "license": "MIT"
+  ]
 }
