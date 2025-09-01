@@ -9,18 +9,15 @@ var app = require('./server/src/app');
 // MongoDB connection
 var mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/counter-app';
 
-mongoose.connect(mongoUri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}, function(err) {
-  if (err) {
+mongoose.connect(mongoUri)
+  .then(() => {
+    console.log('Connected to MongoDB successfully');
+  })
+  .catch((err) => {
     console.error('Could not connect to MongoDB!');
     console.log(err);
     process.exit(1);
-  } else {
-    console.log('Connected to MongoDB successfully');
-  }
-});
+  });
 
 // Start the server
 var port = process.env.PORT || 3000;

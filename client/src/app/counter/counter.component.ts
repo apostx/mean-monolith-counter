@@ -3,6 +3,7 @@ import { CounterService } from './counter.service';
 
 @Component({
   selector: 'app-counter',
+  standalone: false,
   template: `
     <div class="card">
       <div class="card-header">

@@ -12,14 +12,15 @@ var app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// API routes (must come before static files)
+app.use('/api/counter', require('./routes/counter'));
+
 // Serve static files (Angular build output)
 app.use(express.static(path.join(__dirname, '../public')));
 
-// API routes
-app.use('/api/counter', require('./routes/counter'));
-
-// Catch all handler: send back Angular's index.html file for any non-API routes
-app.get('*', function(req, res) {
+// SPA fallback: serve index.html for all non-API routes
+// Using middleware approach that's Express 5.x compatible
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 

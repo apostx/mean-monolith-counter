@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:22
 
 WORKDIR /app
 
@@ -7,14 +7,14 @@ RUN apt-get update && apt-get install -y \
     wget \
     gnupg2 \
     software-properties-common \
-    && wget -qO - https://www.mongodb.org/static/pgp/server-7.0.asc | apt-key add - \
-    && echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-7.0.list \
+    && wget -qO - https://pgp.mongodb.com/server-8.0.asc | gpg --dearmor > /usr/share/keyrings/mongodb-server-8.0.gpg \
+    && echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-8.0.list \
     && apt-get update \
     && apt-get install -y mongodb-org \
     && rm -rf /var/lib/apt/lists/*
 
 # Install global dependencies
-RUN npm install -g @angular/cli@16 nodemon concurrently
+RUN npm install -g @angular/cli@20.2.1 nodemon@3.1.10 concurrently@9.1.0
 
 # Create MongoDB data directory
 RUN mkdir -p /data/db
