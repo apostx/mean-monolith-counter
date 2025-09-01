@@ -1,5 +1,5 @@
 {
-  "name": "monolithic-mean-counter-app",
+  "name": "@apostx/monolithic-mean-counter-app",
   "version": "1.0.0",
   "description": "Monolithic MEAN Stack Counter Application",
   "main": "server.js",

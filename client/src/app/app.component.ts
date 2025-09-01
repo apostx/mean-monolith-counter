@@ -12,5 +12,5 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'MEAN Counter App';
+  title = 'Counter App';
 }
