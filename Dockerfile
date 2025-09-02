@@ -35,5 +35,5 @@ COPY . .
 # Expose port
 EXPOSE 3000
 
-# Start script that runs MongoDB, builds Angular, and starts Express - TRUE MONOLITH
-CMD ["sh", "-c", "mongod --fork --logpath /var/log/mongodb.log && npm run client:build && npm start"]
+# Start script that runs MongoDB, builds Angular, builds TypeScript, and starts Express - TRUE MONOLITH
+CMD ["sh", "-c", "mongod --fork --logpath /var/log/mongodb.log && npm run client:build && npm run build && npm start"]
